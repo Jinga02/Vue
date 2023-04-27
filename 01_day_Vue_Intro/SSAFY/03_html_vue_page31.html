@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <!-- 선언적 렌더링 {{}} : Vue data를 화면에 렌더링 -->
+    <p id="name">name : {{message}}</p>
+    <input id="inputName" type="text" v-model="message">
+  </div>
+  
+  <!-- Vue CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    // CODE HERE
+    // Vue 객체 만들기
+    const app = new Vue({
+      // id가 app인 요소 연결
+      el: '#app',
+      // data에 관리할 속성 정의
+      data: {
+        message: '',
+        movie: '가디언즈 오브 갤럭시3',
+      }
+    })
+    // 이전처런 선택자를 따로 지정해 줄 필요 없이 간단하게 작성 및 사용 가능
+  </script>
+</body>
+</html>
