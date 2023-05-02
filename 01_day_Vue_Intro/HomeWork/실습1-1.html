@@ -9,11 +9,18 @@
 <body>
   <div id="app">
     <h1>Popular Movies</h1>
-    {{getPopularMovies()}}
+    <!-- {{getPopularMovies()}} -->
     <div>
+        <h2>computed 사용</h2>
       <ul>
-        <li v-for="movie in movieinfo.results" v-if="movie.vote_average >= 8.0">
+        <li v-for="movie in getPopularMovies_computed">
             {{movie.title}}
+        </li>
+      </ul>
+        <h2>methods 사용</h2>
+      <ul>
+        <li v-for="movie in getPopularMovies()">
+            {{movie}}
         </li>
       </ul>
     </div>
@@ -435,6 +442,13 @@
             // .reduce((acc, tag) => acc+tag);
         },
       },
+      computed:{
+        getPopularMovies_computed : function(){
+            const movies = this.movieinfo.results;
+            const titles = movies.filter((movie) => movie.vote_average >= 8)
+            return titles
+        }
+      }
     })
   </script>
 </body>
