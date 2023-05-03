@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    
+    <div id="menu">
+        <h1>점심메뉴</h1>
+        <button @click="pickMenu">Pick One</button>
+        <br><br>
+        <p>오늘 점심 메뉴는 : {{myPick}} 입니다.</p>
+
+    </div>
+    <hr>
+    <div id="lotto">
+        <h1>로또</h1>
+        <button @click="pickLotto">Get Lucky Numbers</button>
+        <br><br>
+        <p>오늘의 추천 번호는 : {{myNum}} 입니다.</p>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js"></script>
+    <script>
+        const menu = new Vue({
+            el: "#menu",
+            data:{
+                menus:[
+                    "국밥", "초밥", "뼈해장국", "칼국수", "제육볶음", "돈까스"
+                ],
+                myPick:"",
+            },
+            methods:{
+                pickMenu:function(){
+                    this.myPick = _.sample(this.menus)
+                },
+                pickLotto:function(){
+                    this.myNum = _.sample(this.lottoNums, 6)
+                }
+            }
+        })
+
+        const lotto = new Vue({
+            el: "#lotto",
+            data:{
+                lottoNums: _.range(1, 46),
+                myNum:"",
+            },
+            methods:{
+                pickLotto:function(){
+                    this.myNum = _.sampleSize(this.lottoNums, 6)
+                }
+            }
+        })
+    </script>
+</body>
+</html>
