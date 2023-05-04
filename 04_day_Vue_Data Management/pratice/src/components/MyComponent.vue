@@ -1,12 +1,11 @@
 <template>
-  <div class="MyComponent">
+  <div class>
     <h1>MyComponent.vue입니다.</h1>
     <MyChild 
-    static-props="MyComponent(부모)에서 MyChild(자식)으로" 
-    :my-component-data="dynamicProps"
+    :component-props="componentMessage" 
+    :fuck-message="fuckMessage"
     @child-to-parent="parentGetEvent"
-    @child-input="getDynamicData"/>
-    
+    />
   </div>
 </template>
 
@@ -15,28 +14,23 @@ import MyChild from '@/components/MyChild.vue'
 
 export default {
     name: "MyComponent",
-    components: { 
+    components:{
         MyChild,
     },
     data: function(){
         return{
-            dynamicProps: "MyComponent에서 보낸 dynamicProps데이터",
+            componentMessage: "MyComponent에서 보낸 메시지 입니다.",
+            fuckMessage: "FuckFuckFuckFuckFuckFuckFuckFuckFuckFuckFuckFuckFuckFuckFuck"
         }
     },
     methods: {
-        parentGetEvent(){
-            console.log('MyChild에서 발생한 이벤트')
-        },
-        getDynamicData(input){
-            console.log(`MyChild에서 입력한 ${input}을 출력`)
+        parentGetEvent(inputData){
+            console.log(`MyChild에서 보낸 ${inputData}`)
         }
     }
-    
 }
 </script>
 
 <style>
-    .MyComponent{
-        border: solid;
-    }
+
 </style>

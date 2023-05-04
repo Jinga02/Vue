@@ -11,7 +11,7 @@
 <body>
 <div id="app">
   <h1>회문검사기</h1>
-  <input type="text" v-model="message"><button v-on:click="isPalindrome">확인하기</button>
+  <input type="text" v-model="message" @keyup.enter="isPalindrome"><button v-on:click="isPalindrome">확인하기</button>
 </div>
 
 <script type="text/javascript">

@@ -1,11 +1,12 @@
 <template>
-  <div class="MyChild">
-    <h1>MyChild.vue 입니다.</h1>
-    <p>{{ staticProps }}</p>
-    <p>{{ myComponentData }}</p>
-    <button @click="childToParent">클릭하던가</button>
-    <input type="text" v-model='childInputData' @keyup.enter="childInput">
+  <div>
+    <h3>This is child component</h3>
+    <p>{{ componentProps }}</p>
+    <p>{{ fuckMessage }}</p>
+    <button @click="childToParent">클릭</button>
+    <input type="text" v-model="childInputData" @keyup.enter="childInput">
   </div>
+
 </template>
 
 <script>
@@ -17,17 +18,16 @@ export default {
       }
     },
     props:{
-        staticProps: String,
-        myComponentData: String,
+      componentProps: String,
+      fuckMessage: String,
     },
-    methods:{
+    methods: {
       childToParent: function(){
-        this.$emit('child-to-parent')
-        // console.log('MyChild에서 발생한 이벤트')
+        this.$emit('child-to-parent', '뭘 봐')
       },
-        childInput: function(){
-            this.$emit('child-input', this.childInputData)
-            this.childInputData=""
+      childInput(){
+        this.$emit('child-input', this.childInputData)
+        this.childInputData = ""
       }
     }
 }
