@@ -43,10 +43,10 @@
                             create_at: new Date().getTime()
                         }
                         this.todos.push(item)
-                        this.inputData = ""
                     }else{
                         alert("할 일을 입력해주세요.")
                     }
+                    this.inputData = ""
                 },
                 clearAll(){
                     this.todos = this.todos.filter((x) => x.completed === false)
