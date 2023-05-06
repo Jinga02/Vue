@@ -3,8 +3,8 @@
     <h1>FCChild 입니다.</h1>
     {{ fcData }}
     <h1>Todo</h1>
-    <input type="text" v-model="inputData" @keyup.enter="input">
-    <button @click="input">Todo 추가하기</button>
+    <input type="text" v-model="inputData" @keyup.enter="INPUT" />
+    <button @click="INPUT">Todo 추가하기</button>
     <ol>
         <li v-for="todo in todos" :key="todo.create_at">
             {{ todo.Input }}
@@ -31,21 +31,21 @@ export default {
         makeStr(){
             this.$emit("make-str", "무슨 차이지")
         },
-        input(){
-            if(this.inputData.trim()){
-                const item = {
-                    Input : this.inputData,
-                    completed : false,
-                    create_at : new Date().getTime()
-                }
-                this.todos.push(item)
-            }else{
-                alert("할 일을 입력해주세요.")
-            }
-            this.inputData=""
-        }
-    }
-}
+        INPUT() {
+          if (this.inputData.trim()) {
+            const item = {
+              Input: this.inputData,
+              completed: false,
+              create_at: new Date().getTime(),
+        };
+        this.todos.push(item);
+      } else {
+        alert("할 일을 입력해주세요.");
+      }
+      this.inputData = "";
+    },
+  },
+};
 </script>
 
 <style>

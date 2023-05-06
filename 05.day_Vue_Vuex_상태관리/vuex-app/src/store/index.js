@@ -19,11 +19,11 @@ export default new Vuex.Store({
   },
   mutations: {
     // 첫 번째 인자는 state / 두 번째 인자는 payload
-    CHANGE_MESSAGE(state, message){
+    // CHANGE_MESSAGE(state, message){
       // console.log(state)
       // console.log(message)
-      state.message = message
-    }
+      // state.message = message
+    // }
   },
   actions: {
     // mutations

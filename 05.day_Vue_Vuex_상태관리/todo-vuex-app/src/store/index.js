@@ -13,7 +13,8 @@ export default new Vuex.Store({
   mutations: {
     CREATE_TODO(state, todoItem){
       state.todos.push(todoItem)
-    }
+    },
+
   },
   actions: {
     createTodo(context, todoTitle) {
@@ -22,7 +23,8 @@ export default new Vuex.Store({
         isCompleted: false,
       }
       context.commit('CREATE_TODO', todoItem)
-    }                                              
+    },
+                                                  
   },                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
   modules: {
   }
