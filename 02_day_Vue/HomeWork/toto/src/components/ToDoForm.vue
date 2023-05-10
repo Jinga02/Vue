@@ -1,7 +1,7 @@
 <template>
   <div>
     <input type="text" v-model="todoItem" @keyup.enter="addTodo">
-    <button @click="">완료된 할 일 지우기</button>
+    <button @click="ㅇ">완료된 할 일 지우기</button>
   </div>
 </template>
 

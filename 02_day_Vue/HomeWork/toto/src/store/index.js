@@ -23,7 +23,7 @@ export default new Vuex.Store({
       context.commit("ADD_TODO", todoItem)
     },
     clearAll(context){
-      context.todoList = 
+      
     }
   },
   modules: {

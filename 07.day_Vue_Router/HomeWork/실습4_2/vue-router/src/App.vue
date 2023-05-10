@@ -21,8 +21,10 @@ export default {
 
 <style>
 #app {
-  text-align: center;
+  margin: 0 auto;
   margin-top: 60px;
+  width: 1000px;
+  text-align: center;
 }
 
 .flex{

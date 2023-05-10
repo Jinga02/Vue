@@ -1,32 +1,55 @@
 <template>
   <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
-    <router-view/>
+    <h1>Coffe Order App</h1>
+    <div class="up">
+      <div class="flex">
+        <MenuList/>
+        <SizeList/>
+      </div>
+    </div>
+    <div id="order">
+      <OrderList/>
+    </div>
   </div>
 </template>
 
+<script>
+import MenuList from "@/components/MenuList.vue"
+import SizeList from "@/components/SizeList.vue"
+import OrderList from "@/components/OrderList.vue"
+export default {
+  components:{
+    MenuList,
+    SizeList,
+    OrderList
+  }
+}
+</script>
+
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  margin: 0 auto;
+  margin-top: 60px;
+  width: 1000px;
   text-align: center;
-  color: #2c3e50;
 }
 
-nav {
-  padding: 30px;
+.flex{
+  display: flex;
+  flex-direction: row;
 }
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
+.up{
+  background-color: rgba(128, 128, 128, 0.219);
+  border-radius: 16px;
+  padding: 10px;
 }
+.list-group{
+    padding: 10px;
+    margin: 6px;
+    border: solid 2px;
+    border-radius: 12px;
+    flex:auto;
+  }
 
-nav a.router-link-exact-active {
-  color: #42b983;
-}
 </style>

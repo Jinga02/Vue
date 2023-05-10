@@ -26,12 +26,13 @@ export default {
     justify-content: space-between;
     border: solid 2px ;
     border-radius: 16px;
-    padding: 5px;
+    padding: 5px 10px;
     height: 100%;
   }
 
   .isSelected{
     background-color: rgb(0, 152, 86);
+    color: white;
   }
 
   p{

@@ -29,8 +29,4 @@ export default {
     margin: 2px;
   }
 
-  .list-group{
-    padding: 10px;
-  }
-
 </style>

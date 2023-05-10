@@ -45,7 +45,16 @@ export default new Vuex.Store({
     ],
   },
   getters: {
-
+    sumOrderCounter(state){
+      return state.orderList.length
+    },
+    sumOrderPrice: function (state) {
+      return state.orderList.reduce((sum, order) => {
+        const price = order.menu.price 
+        const size = order.size.price
+        return sum + price + size
+      }, 0)
+    }
   },
   mutations: {
     updateMenuList(state, selectedMenu) {

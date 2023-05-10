@@ -1,39 +1,43 @@
 <template>
   <div 
   class="flex justify-between"
-  :class="{isSelected:size.selected}"
+  :class="{isSelected: menu.selected}"
   @click="selected">
-    <p>{{ size.name }}</p>
-    <p>{{ size.price }}원</p>
+    <img :src="menu.image" alt="">
+    <p>{{ menu.title }}</p>
+    <p>{{ menu.price }}원</p>
   </div>
 </template>
 
 <script>
 export default {
   props:{
-    size:Object,
+    menu:Object,
   },
   methods:{
     selected(){
-      this.$store.commit("updateSizeList", this.size)
+      this.$store.commit("updateMenuList", this.menu)
     }
   }
 }
 </script>
 
 <style scoped>
+  img{
+    width: 50px;
+    height: 50px;
+    border-radius: 16px;
+  }
   .justify-between{
     justify-content: space-between;
     border: solid 2px ;
     border-radius: 16px;
-    padding: 5px;
-    height: 100%;
+    padding: 5px 10px;
   }
-
   .isSelected{
     background-color: rgb(0, 152, 86);
+    color: white;
   }
-
   p{
     font-size: 20px;
   }

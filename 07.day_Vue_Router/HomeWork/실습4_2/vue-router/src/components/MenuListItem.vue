@@ -26,6 +26,7 @@ export default {
   img{
     width: 50px;
     height: 50px;
+    border-radius: 16px;
   }
   .justify-between{
     justify-content: space-between;
@@ -33,8 +34,10 @@ export default {
     border-radius: 16px;
     padding: 5px;
   }
-
   .isSelected{
-    background-color: rgba(63, 62, 63, 0.705);
+    background-color: rgb(0, 152, 86);
+  }
+  p{
+    font-size: 20px;
   }
 </style>
