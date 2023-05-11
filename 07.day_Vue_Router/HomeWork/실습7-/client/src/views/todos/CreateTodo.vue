@@ -10,7 +10,8 @@
 </template>
 
 <script>
-// import axios from'axios'
+import axios from 'axios'
+const API_URL = 'http://127.0.0.1:8000'
 
 export default {
   name: 'CreateTodo',
@@ -21,7 +22,22 @@ export default {
   },
   methods: {
     createTodo: function () {
-      // 2번 문제
+      const title = this.title
+      if(!title){
+        alert('할 일을 입력하세요.')
+        return
+      }
+      axios({
+        method:'post',
+        url:`${API_URL}/todos/`,
+        data:{title}
+      })
+      .then(() => {
+        this.$router.push({name:'TodoList'})
+      })
+      .catch((err) => {
+        console.log(err)
+      })
     }
   }
 }

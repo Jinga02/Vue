@@ -17,7 +17,7 @@
 
 <script>
 import axios from 'axios'
-
+const API_URL='http://127.0.0.1:8000'
 export default {
   name: 'TodoList',
   data: function () {
@@ -25,11 +25,14 @@ export default {
       todos: null,
     }
   },
+  created(){
+    this.getTodos()
+  },
   methods: {
     getTodos: function () {
       axios({
         method: 'get',
-        url: 'http://127.0.0.1:8000/todos/',
+        url: `${API_URL}/todos/`,
       })
         .then(res => {
           console.log(res)
@@ -39,16 +42,38 @@ export default {
           console.log(err)
         })
     },
-    // deleteTodo: function (todo) {
+    deleteTodo: function (todo) {
       // 3번 문제
-      
+      axios({
+        method:'delete',
+        url:`${API_URL}/todos/${todo.id}`
+      })
+      .then(()=>{
+        this.getTodos()
+      })
     },
-    // updateTodoStatus: function (todo) {
+    updateTodoStatus: function (todo) {
       // 4번 문제
+      todo.is_completed = !todo.is_completed
       
-    // },
-  // },
+      axios({
+        method:'put',
+        url:`${API_URL}/todos/${todo.id}/`,
+        data:{
+          title : todo.title,
+          is_completed : todo.is_completed,
+        }
+      })
+      .then(()=> {
+          console.log('업데이트 완료')
+        })
+        .catch(() => {
+          console.log('업데이트 실패')
+        })
+    },
+  },
 }
+
 </script>
 
 <style scoped>
@@ -59,5 +84,8 @@ export default {
   .is-completed {
     text-decoration: line-through;
     color: rgb(112, 112, 112);
+  }
+  li{
+    list-style: none;
   }
 </style>
