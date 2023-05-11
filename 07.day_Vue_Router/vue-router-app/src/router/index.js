@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import testView from '@/views/testView.vue'
 // import HelloView from '../views/HelloView.vue'
 
 Vue.use(VueRouter)
@@ -32,6 +33,11 @@ const routes = [
   //   name: 'hello',
   //   component: HelloView,
   // }
+  {
+    path: '/test/:userName',
+    name:'test',
+    component: testView
+  }
 ]
 
 const router = new VueRouter({

@@ -6,7 +6,8 @@
 
       <router-link :to="{ name: 'home' }">Home</router-link> |
       <router-link :to="{ name: 'about' }">About</router-link> |
-      <router-link :to="{ name: 'hello', params: { userName: 'woong'}}">Hello</router-link>
+      <router-link :to="{ name: 'hello', params: { userName: 'woong'}}">Hello</router-link> |
+      <router-link :to="{name : 'test', params:{userName: 'jin'}}">test</router-link>
     </nav>
     <router-view/>
   </div>
