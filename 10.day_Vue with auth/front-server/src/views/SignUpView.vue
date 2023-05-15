@@ -39,6 +39,9 @@ export default {
       }
       
       this.$store.dispatch('signUp', payload)
+      console.log('회원가입 완료')
+      this.$router.push({name: 'LoginView'})
+      
     }
   }
 }
